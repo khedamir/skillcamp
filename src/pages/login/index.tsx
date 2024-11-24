@@ -1,4 +1,3 @@
-import React from "react";
 import InputWrapper from "../../components/inputWrapper";
 import { CiUser } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";

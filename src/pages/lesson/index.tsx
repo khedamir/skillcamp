@@ -1,11 +1,5 @@
-import React from 'react'
-
 const Lesson = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default Lesson
+export default Lesson;
