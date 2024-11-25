@@ -1,11 +1,25 @@
 .input-field {
   position: relative;
 
+  &.is-error {
+    .input-field__inner input {
+      border: 1px solid #b42a2a;
+    }
+  }
+
   &__icon {
     position: absolute;
     top: 12px;
     left: 12px;
     color: #787878;
+  }
+
+  .passread {
+    position: absolute;
+    top: 13px;
+    right: 12px;
+    color: #787878;
+    cursor: pointer;
   }
 
   &__inner input {
@@ -14,5 +28,12 @@
     outline: none;
     padding: 12px 14px 12px 36px;
     border-radius: 8px;
+  }
+
+  &__error {
+    color: #b42a2a;
+    position: absolute;
+    bottom: -15px;
+    font-size: 12px;
   }
 }

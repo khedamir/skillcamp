@@ -1,8 +1,10 @@
-import{ FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
+import { FieldError } from "react-hook-form";
 
 interface InputWrapperProps {
   icon: ReactNode;
   children: ReactNode;
+  error?: FieldError | undefined;
   errorMessage?: string;
 }
 

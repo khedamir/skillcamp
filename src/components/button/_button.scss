@@ -6,4 +6,10 @@
   border-radius: 8px;
   width: fit-content;
   text-transform: uppercase;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
 }
