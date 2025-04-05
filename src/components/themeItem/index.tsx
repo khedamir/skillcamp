@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { ThemeData } from "../../redux/types";
 import { HiOutlineAcademicCap } from "react-icons/hi2";
 

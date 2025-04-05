@@ -28,7 +28,7 @@ const Admin = () => {
         setFilteredCourses={setFilteredCoursesList}
       />
       <div className="courses-list">
-        {[1, 2, 3, 4].map((course) => (
+        {filteredCoursesList.map((course) => (
           <AdminCourseCard course={course} />
         ))}
       </div>
