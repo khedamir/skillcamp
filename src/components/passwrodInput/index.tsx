@@ -11,7 +11,7 @@ interface PasswordInputProps {
 
 const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   ({ error, ...inputProps }, ref) => {
-    const [isPassView, setIsPassView] = useState(true);
+    const [isPassView, setIsPassView] = useState(false);
     return (
       <InputWrapper
         errorMessage={error?.message}

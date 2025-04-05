@@ -1,0 +1,39 @@
+@use "../../styles/config" as *;
+
+
+.theme-item {
+    background-color: $light;
+    padding: 18px 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    position: relative;
+    font-size: 18px;
+    color: $dark;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    .icon {
+        font-size: 24px;
+        min-width: 24px;
+    }
+
+    .done-icon {
+        font-size: 28px;
+        position: absolute;
+        left: -18px;
+        top: calc(50% - 14px);
+    }
+
+    &.is--done {
+        color: $orange;
+    }
+
+    &__title {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+}

@@ -1,11 +1,12 @@
 export enum AppRoutes {
   Home = "/",
-  Login = "/login",
-  Signin = "/signin",
+  Sigin = "/signin",
+  Signup = "/signup",
   Courses = "/courses",
   Course = "/courses/:courseId",
-  Lesson = "/course/:courseId/:lessonId",
+  Lesson = "/courses/:courseId/:lessonId",
   LeaderBoard = "/leader-board",
+  Profile = "/profile",
   Admin = "/admin",
   All = "*",
 }

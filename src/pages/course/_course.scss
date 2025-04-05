@@ -1,0 +1,42 @@
+@use "../../styles/config" as *;
+
+.course-page {
+  .course-header {
+    background-color: $orange;
+    border-radius: 18px;
+    padding: 32px;
+    color: $dark;
+
+    h1 {
+      color: $light;
+      margin-bottom: 12px;
+    }
+
+    .course-description {
+      max-width: 800px;
+
+      h2 {
+        margin-bottom: 12px;
+      }
+
+      p {
+        color: $gray;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .course-themes {
+    padding: 32px 0;
+
+    &__title {
+      color: $light;
+    }
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 32px 0;
+    }
+  }
+}

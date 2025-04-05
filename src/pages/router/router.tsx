@@ -5,9 +5,11 @@ import Courses from "../courses";
 import HomePage from "../homePage";
 import LeaderBoard from "../leaderBoard";
 import Lesson from "../lesson";
-import Login from "../login";
-import Signin from "../signin";
+import Sigin from "../signin";
+import Signup from "../signup";
 import { AppRoutes } from "./routes";
+import BaseLayout from "../../layouts/baseLayout";
+import Profile from "../profile";
 
 export const router = createBrowserRouter([
   {
@@ -15,31 +17,59 @@ export const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: AppRoutes.Login,
-    element: <Login />,
+    path: AppRoutes.Sigin,
+    element: <Sigin />,
   },
   {
-    path: AppRoutes.Signin,
-    element: <Signin />,
+    path: AppRoutes.Signup,
+    element: <Signup />,
   },
   {
     path: AppRoutes.Courses,
-    element: <Courses />,
+    element: (
+      <BaseLayout>
+        <Courses />
+      </BaseLayout>
+    ),
   },
   {
     path: AppRoutes.Course,
-    element: <Course />,
+    element: (
+      <BaseLayout>
+        <Course />
+      </BaseLayout>
+    ),
   },
   {
     path: AppRoutes.Lesson,
-    element: <Lesson />,
+    element: (
+      <BaseLayout>
+        <Lesson />
+      </BaseLayout>
+    ),
   },
   {
     path: AppRoutes.LeaderBoard,
-    element: <LeaderBoard />,
+    element: (
+      <BaseLayout>
+        <LeaderBoard />
+      </BaseLayout>
+    ),
+  },
+  {
+    path: AppRoutes.Profile,
+    element: (
+      <BaseLayout>
+        <Profile />
+      </BaseLayout>
+    ),
   },
   {
     path: AppRoutes.Admin,
-    element: <Admin />,
+    element: (
+      <BaseLayout>
+        <Admin />
+      </BaseLayout>
+    ),
   },
 ]);

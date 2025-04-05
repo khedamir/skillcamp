@@ -1,0 +1,80 @@
+@use "../../styles/config" as *;
+
+.course-card {
+  width: 100%;
+  height: fit-content;
+  background-color: $light;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 8px;
+  box-shadow: 0 0 20px -14px $orange;
+  transition: transform 0.3s, color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  position: relative;
+
+  &:hover {
+    background-color: $orange;
+    box-shadow: 0 0 20px -7px $light;
+    transform: scale(1.02);
+    cursor: default;
+
+    .course-description {
+      h3 {
+        color: $light;
+      }
+    }
+
+    button {
+      background-color: $light;
+      color: $orange;
+    }
+  }
+
+  .course {
+    &-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    &-description {
+      padding: 8px 12px;
+      color: $dark;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      button {
+        align-self: flex-end;
+        margin-top: 12px;
+      }
+
+      h3 {
+        color: $orange;
+      }
+
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &-meta {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+
+      div {
+        background-color: $orange;
+        padding: 4px 8px;
+        border-radius: 8px;
+        color: $light;
+      }
+    }
+  }
+}

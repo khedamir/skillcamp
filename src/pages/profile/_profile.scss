@@ -1,0 +1,164 @@
+@use "../../styles/config" as *;
+
+.profile-page {
+  padding-top: 0 !important;
+  &__header {
+    background: linear-gradient(to right, $orange, $light);
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    height: 180px;
+    position: relative;
+    margin-bottom: 65px;
+    position: relative;
+
+    .profile-image {
+      border-radius: 50%;
+      position: absolute;
+      height: 160px;
+      width: 160px;
+      object-fit: cover;
+      left: 64px;
+      bottom: -65px;
+      border: 4px solid $dark;
+    }
+
+    .user-role {
+      font-size: 22px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      color: $dark;
+      justify-content: flex-end;
+      position: absolute;
+      right: 64px;
+      bottom: 20px;
+      font-weight: 500;
+
+      &__icon {
+        color: $orange;
+      }
+    }
+  }
+
+  &__description {
+    padding: 12px 64px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    .user {
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      &name {
+        color: $light;
+        font-size: 52px;
+      }
+
+      &-description {
+        font-size: 24px;
+        color: $orange;
+      }
+
+      &-phone {
+        font-size: 24px;
+        color: $orange;
+      }
+
+      // &-role {
+      //   font-size: 22px;
+      //   display: flex;
+      //   gap: 6px;
+      //   align-items: center;
+      //   color: $light;
+      //   justify-content: flex-end;
+
+      //   &__icon {
+      //     color: $orange;
+      //   }
+      // }
+
+      &-achievements {
+        flex: 1;
+        display: grid;
+        grid-template-areas: "a b" "a c";
+        gap: 6px;
+        align-items: stretch;
+        justify-items: stretch;
+        justify-content: stretch;
+        align-content: stretch;
+
+        .item {
+          border-radius: 12px;
+          background-color: $light;
+          color: $dark;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          justify-content: center;
+          align-items: center;
+          font-weight: 500;
+        }
+
+        .points {
+          grid-area: a;
+          background-color: $orange;
+          color: $light;
+        }
+
+        .themes {
+          grid-area: b;
+          background: linear-gradient(to right, $orange, $light);
+        }
+
+        .tests {
+          grid-area: c;
+          background: linear-gradient(to right, $orange, $light);
+        }
+      }
+    }
+    .other {
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 300px;
+
+      &-title {
+        font-size: 22px;
+        align-items: center;
+        color: $light;
+        text-align: right;
+      }
+    }
+  }
+
+  .last-course {
+    padding: 12px 64px;
+
+    &__title {
+      margin-bottom: 12px;
+      color: $light;
+    }
+
+    .course-card {
+      display: flex;
+      height: 220px;
+
+      .course-image {
+        height: 100%;
+      }
+
+      .course-description {
+        height: 100%;
+        p {
+          -webkit-line-clamp: 4;
+          flex: 1;
+        }
+      }
+    }
+  }
+}

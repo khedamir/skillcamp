@@ -1,0 +1,12 @@
+@use "../../styles/config" as *;
+
+.main-footer {
+  background-color: $gray;
+  color: $light;
+  text-align: center;
+  padding: 12px 64px;
+
+  @media (max-width: 764px) {
+    display: none;
+  }
+}

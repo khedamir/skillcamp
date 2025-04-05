@@ -1,5 +1,5 @@
 const emailScheme = {
-  required: "Это поле обязательное",
+  required: "Это поле обязательноe",
   pattern: {
     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
     message: "Неверный адрес электронной почты",
@@ -7,7 +7,7 @@ const emailScheme = {
 };
 
 const passwordScheme = {
-  required: "Это поле обязательное",
+  required: "Это поле обязательноe",
   // pattern: {
   //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,20}$/,
   //   message:
@@ -18,13 +18,13 @@ const passwordScheme = {
 export const loginSchemes = {
   email: emailScheme,
   password: {
-    required: "Это поле обязательно",
+    required: "Это поле обязательноe",
   },
 };
 
 export const registerSchemes = {
   username: {
-    required: "Это поле обязательно",
+    required: "Это поле обязательноe",
   },
   email: emailScheme,
   password: passwordScheme,

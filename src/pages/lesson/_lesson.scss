@@ -1,0 +1,141 @@
+@use "../../styles/config" as *;
+
+.lesson-page {
+  .lesson-title {
+    color: $orange;
+    font-size: 44px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .content {
+    color: $gray;
+    background-color: #fff;
+    padding: 24px 64px;
+    max-width: 100%;
+    overflow-x: hidden;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $dark;
+      margin: 12px 0;
+    }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    h3 {
+      font-size: 32px;
+    }
+
+    h4 {
+      font-size: 28px;
+    }
+
+    h5 {
+      font-size: 24px;
+    }
+
+    h6 {
+      font-size: 20px;
+    }
+
+    ol {
+      list-style: decimal;
+      padding-left: 24px;
+    }
+
+    ul {
+      list-style: circle;
+      padding-left: 24px;
+    }
+
+    p,
+    ul,
+    ol {
+      margin: 6px 0;
+      font-size: 18px;
+      line-height: 26px;
+      text-align: justify;
+    }
+
+    .ql-syntax {
+      background-color: $codebackground;
+      color: $light;
+      padding: 14px;
+      border-radius: 6px;
+      max-width: 100%;
+      overflow-x: scroll;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .complete-button-container {
+    position: relative;
+    margin: 24px;
+
+    .button {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 764px) {
+    padding-bottom: 124px !important;
+    .lesson-title {
+      font-size: 40px;
+    }
+
+    .content {
+      padding: 12px 32px;
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      h3 {
+        font-size: 28px;
+      }
+
+      h4 {
+        font-size: 24px;
+      }
+
+      h5 {
+        font-size: 22px;
+      }
+
+      h6 {
+        font-size: 18px;
+      }
+
+      p,
+      ul,
+      ol {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  @media (max-width: 540px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

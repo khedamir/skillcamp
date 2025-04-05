@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className="home-page">
       <img src={logo} alt="SkillCamp" />
       <h1>SkillCamp</h1>
-      <Link to={"/login"}>Авторизоваться</Link>
+      <Link to={"/signin"}>Авторизоваться</Link>
     </div>
   );
 };

@@ -1,16 +1,25 @@
-@use "config";
+@use "config" as *;
 
 @use "../components/header/header";
 @use "../components/footer/footer";
 @use "../components/inputWrapper/inputWrapper";
 @use "../components/authFormWrapper/authFormWrapper";
 @use "../components/button/button";
+@use "../components/courseCard/courseCard";
+@use "../components/searchCourse/searchCourse";
+@use "../components/themeItem/themeItem";
 
-@use "../pages/login/login";
+@use "../pages/signin/signin";
 @use "../pages/homePage/homePage";
+@use "../pages/courses/courses";
+@use "../pages/course/course";
+@use "../pages/profile/profile";
+@use "../pages/lesson/lesson";
+@use "../pages/admin/admin";
 
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
@@ -18,7 +27,6 @@
 ul,
 ol {
   list-style: none;
-  padding: 0;
 }
 
 a {
@@ -28,4 +36,32 @@ a {
 
 img {
   display: block;
+}
+
+.base-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 320px;
+  background-color: $dark;
+
+  main {
+    flex: 1;
+  }
+}
+
+.page-container {
+  padding: 60px 100px;
+}
+
+@media (max-width: 1024px) {
+  .page-container {
+    padding: 60px 48px;
+  }
+}
+
+@media (max-width: 764px) {
+  .page-container {
+    padding: 76px 24px;
+  }
 }

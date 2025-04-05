@@ -1,11 +1,9 @@
-
-
 const Footer = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <footer className="main-footer">
+      <p>© 2025 — SkillCamp - @DashuevDev</p>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

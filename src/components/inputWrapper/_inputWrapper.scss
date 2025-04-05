@@ -1,37 +1,47 @@
+@use "../../styles/config" as *;
+
 .input-field {
   position: relative;
-
-  &.is-error {
-    .input-field__inner input {
-      border: 1px solid #b42a2a;
-    }
-  }
 
   &__icon {
     position: absolute;
     top: 12px;
     left: 12px;
-    color: #787878;
+    color: $gray;
+    font-size: 18px;
+  }
+
+  &.is-error {
+    .input-field__inner input {
+      border: 1px solid $red;
+      color: $red;
+    }
+
+    .input-field__icon {
+      color: $red;
+    }
   }
 
   .passread {
     position: absolute;
-    top: 13px;
+    top: 14px;
     right: 12px;
-    color: #787878;
+    color: $gray;
     cursor: pointer;
+    font-size: 18px;
   }
 
   &__inner input {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid $dark;
     outline: none;
     padding: 12px 14px 12px 36px;
-    border-radius: 8px;
+    border-radius: 12px;
+    font-size: 16px;
   }
 
   &__error {
-    color: #b42a2a;
+    color: $red;
     position: absolute;
     bottom: -15px;
     font-size: 12px;
