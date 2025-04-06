@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ProfileData } from "../redux/types";
+import { LeaderBoardUserData, ProfileData } from "../redux/types";
 
 export const profileService = {
   async getData(): Promise<ProfileData> {
@@ -33,5 +33,15 @@ export const profileService = {
     });
 
     return data.data[0];
+  },
+
+  async getLeaderBoard(): Promise<LeaderBoardUserData[]> {
+    const { data } = await axios.get(`/api/profiles`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("SKUToken"),
+      },
+    });
+
+    return data.data;
   },
 };

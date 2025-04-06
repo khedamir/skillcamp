@@ -15,6 +15,13 @@ export interface ProfileData {
   user_id: string;
 }
 
+export interface LeaderBoardUserData {
+  id: number;
+  image: string;
+  score: number;
+  username: string;
+}
+
 export interface AutharizationInfo {
   user_id: string;
   user_role: UserRoles;

@@ -68,19 +68,6 @@
         color: $orange;
       }
 
-      // &-role {
-      //   font-size: 22px;
-      //   display: flex;
-      //   gap: 6px;
-      //   align-items: center;
-      //   color: $light;
-      //   justify-content: flex-end;
-
-      //   &__icon {
-      //     color: $orange;
-      //   }
-      // }
-
       &-achievements {
         flex: 1;
         display: grid;
@@ -150,6 +137,7 @@
 
       .course-image {
         height: 100%;
+        width: 45%;
       }
 
       .course-description {
@@ -157,6 +145,100 @@
         p {
           -webkit-line-clamp: 4;
           flex: 1;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 920px) {
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      left: 32px;
+      bottom: -45px;
+    }
+
+    .user-role {
+      font-size: 18px;
+      right: 32px;
+      bottom: 12px;
+    }
+
+    &__description {
+      padding: 12px 32px;
+
+      .user {
+        &name {
+          font-size: 36px;
+        }
+
+        &-description {
+          font-size: 20px;
+        }
+
+        &-phone {
+          font-size: 18px;
+        }
+
+        .button {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .last-course {
+      padding: 12px 32px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-radius: 0;
+
+    &__header {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .user-role {
+      font-size: 16px;
+      right: 24px;
+      bottom: 8px;
+    }
+
+    .profile-image {
+      left: 24px;
+    }
+
+    &__description {
+      flex-direction: column;
+      padding: 12px 24px;
+
+      .other {
+        width: 100%;
+        height: 200px;
+      }
+    }
+
+    .last-course {
+      padding: 12px 24px;
+
+      .course-card {
+        display: block;
+        height: fit-content;
+  
+        .course-image {
+          width: 100%;
+          height: 150px;
+        }
+  
+        .course-description {
+          height: 100%;
+          p {
+            -webkit-line-clamp: 4;
+            flex: 1;
+          }
         }
       }
     }

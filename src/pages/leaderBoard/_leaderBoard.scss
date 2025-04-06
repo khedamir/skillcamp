@@ -1,0 +1,73 @@
+@use "../../styles/config" as *;
+
+.leaderboard-page {
+  &__header {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: $light;
+      position: relative;
+    }
+
+    h1::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 25px;
+      height: 1.5px;
+      right: -30px;
+      top: 50%;
+      background-color: $light;
+      transform: translateY(-50%);
+    }
+
+    h1::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 25px;
+      height: 1.5px;
+      left: -30px;
+      top: 50%;
+      background-color: $light;
+      transform: translateY(-50%);
+    }
+  }
+
+  .user-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .user-item {
+    background-color: $light;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+
+    p {
+      flex: 1;
+    }
+
+    &:nth-child(1) {
+      background-color: $orange;
+      color: $light;
+      font-weight: 500;
+      padding: 20px 12px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      border: 2px solid $orange;
+      color: $orange;
+      font-weight: 500;
+      padding: 16px 12px;
+    }
+  }
+}
