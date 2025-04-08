@@ -48,4 +48,37 @@ export interface LessonData {
   upkeep: string;
 }
 
+export interface CommentData {
+  id: number;
+  theme_id: number;
+  user_id: string;
+  content: string;
+  email: string;
+  created_at: string;
+}
+
+export interface AnswerData {
+  id: number;
+  comment_id: number;
+  user_id: string;
+  content: string;
+  email: string;
+  created_at: string;
+}
+
+export interface TestData {
+  id: number;
+  subject_id: number;
+  title: string;
+}
+
+export interface ComplatedTestData {
+  id: number;
+  points: number;
+  question_count: number;
+  subject_id: number;
+  test_id: number;
+  user_id: number;
+}
+
 export type UserRoles = "admin" | "user";

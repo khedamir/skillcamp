@@ -1,0 +1,219 @@
+@use "../../styles/config" as *;
+
+.lesson-comments {
+  margin-top: 84px;
+
+  &__header {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $orange;
+  }
+
+  .new-comment {
+    &__input {
+      .reply-comm {
+        color: $blue;
+        display: block;
+        margin-bottom: 12px;
+      }
+    }
+    textarea {
+      resize: none;
+      height: 64px;
+
+      &::-webkit-scrollbar {
+        /* chrome based */
+        width: 0; /* ширина scrollbar'a */
+        background: transparent; /* опционально */
+      }
+
+      -ms-overflow-style: none; /* IE 10+ */
+      scrollbar-width: none; /* Firefox */
+    }
+    &.is--active {
+      .new-comment__bottom {
+        display: flex;
+      }
+    }
+    &__bottom {
+      position: relative;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      margin: 12px 0;
+
+      .buttons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .button {
+          &-cancel {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .emoji-block {
+        position: absolute;
+        z-index: 100;
+        bottom: 110%;
+        display: none;
+        width: 350px;
+
+        &.is--active {
+          display: block;
+        }
+
+        @media screen and (max-width: 520px) {
+          width: 100%;
+
+          right: 0;
+          left: 0;
+        }
+      }
+
+      .comments-new__emoji {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        font-size: 24px;
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        transition: all 0.3s;
+        color: $orange;
+        background-color: $light;
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+
+        @media screen and (hover: hover) {
+          &:hover {
+            background: $orange;
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    background-color: white;
+    margin: 16px 0;
+    padding: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: #888 transparent; /* Для Firefox */
+
+    &::-webkit-scrollbar {
+      width: 6px; /* Толщина скроллбара */
+      height: 6px; /* Для горизонтального скролла */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888; /* Цвет ползунка */
+      border-radius: 3px; /* Закругление углов */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent; /* Фон трека */
+    }
+
+    .comment {
+      &.comment-question {
+        & > .comment-data {
+          padding: 6px;
+        }
+
+        .admin-buttons {
+          display: flex;
+          gap: 6px;
+          font-size: 12px;
+          justify-content: flex-end;
+          color: $blue;
+
+          span {
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &.comment-answer {
+        .comment-author {
+          color: $blue;
+        }
+      }
+
+      &-wrapper {
+        display: flex;
+        gap: 12px;
+
+        .user-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: rgb($gray, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .comment-data {
+          flex: 1;
+        }
+      }
+
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &-author {
+        color: $orange;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      &-date {
+        opacity: 0.8;
+        font-size: 12px;
+      }
+
+      .answers-list {
+        padding: 14px 0 12px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        border-left: 1px solid rgb($gray, 0.4);
+        margin: 0 0 12px 18px;
+
+        .user-icon {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    padding: 12px;
+  }
+}

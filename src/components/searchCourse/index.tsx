@@ -78,6 +78,7 @@ const SearchCourse: FC<SearchCourseProps> = ({
       </span>
       <input
         type="text"
+        className="input"
         placeholder="Поиск по названию или описанию"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}

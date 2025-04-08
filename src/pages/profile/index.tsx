@@ -9,9 +9,13 @@ import UserAchievements from "../../components/userAchievements";
 import { subjectService } from "../../services/subject.service";
 import { CourseData } from "../../redux/types";
 import CourseCard from "../../components/courseCard";
+import { MdOutlineLogout } from "react-icons/md";
+import { logout } from "../../redux/auth/slice";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [lastSubject, setLastSubject] = useState<CourseData | null>(null);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { profile, autharizationData } = useSelector(
@@ -28,6 +32,12 @@ const Profile = () => {
       });
     });
   }, [dispatch]);
+
+  const logoutClick = () => {
+    localStorage.setItem("SKUToken", "-");
+    dispatch(logout());
+    navigate("/");
+  };
 
   if (!profile) {
     return;
@@ -46,6 +56,9 @@ const Profile = () => {
           <FaBriefcase className="user-role__icon" />
           {autharizationData?.user_role === "admin" ? "Админ" : "Пользователь"}
         </div>
+        <span onClick={logoutClick} className="mobile-logout">
+          <MdOutlineLogout />
+        </span>
       </header>
       <div className="profile-page__description">
         <div className="user-info">

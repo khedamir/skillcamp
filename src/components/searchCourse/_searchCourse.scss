@@ -21,19 +21,14 @@
     cursor: pointer;
   }
 
-  input {
-    padding: 12px 24px;
+  .input {
     padding-left: 38px;
-    outline: none;
-    border-radius: 6px;
-    border: none;
     width: 400px;
-    color: $gray;
   }
 
   @media (max-width: 764px) {
     width: 100%;
-    input {
+    .input {
       width: 100%;
     }
   }

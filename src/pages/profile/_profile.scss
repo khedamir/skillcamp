@@ -38,6 +38,15 @@
         color: $orange;
       }
     }
+    .mobile-logout {
+      display: none;
+      color: $blue;
+      position: absolute;
+      right: 32px;
+      top: 74px;
+      font-size: 20px;
+      cursor: pointer;
+    }
   }
 
   &__description {
@@ -191,6 +200,12 @@
     }
   }
 
+  @media (max-width: 764px) {
+    .mobile-logout {
+      display: block;
+    }
+  }
+
   @media (max-width: 540px) {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -205,6 +220,10 @@
       font-size: 16px;
       right: 24px;
       bottom: 8px;
+    }
+
+    .mobile-logout {
+      right: 24px;
     }
 
     .profile-image {
@@ -227,12 +246,12 @@
       .course-card {
         display: block;
         height: fit-content;
-  
+
         .course-image {
           width: 100%;
           height: 150px;
         }
-  
+
         .course-description {
           height: 100%;
           p {

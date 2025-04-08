@@ -50,7 +50,7 @@ const Course = () => {
             />
           ))}
         </div>
-        <div className="course-tests__list"></div>
+        {/* <TestsList courseId={course.id} /> */}
       </div>
     </div>
   );

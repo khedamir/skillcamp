@@ -39,4 +39,28 @@
       padding: 32px 0;
     }
   }
+
+  .course-tests__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .test-item {
+      background-color: $light;
+      padding: 18px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in;
+      position: relative;
+      font-size: 18px;
+      color: $dark;
+
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
 }

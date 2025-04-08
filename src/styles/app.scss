@@ -8,6 +8,7 @@
 @use "../components/courseCard/courseCard";
 @use "../components/searchCourse/searchCourse";
 @use "../components/themeItem/themeItem";
+@use "../components/comments/comments";
 
 @use "../pages/signin/signin";
 @use "../pages/homePage/homePage";
@@ -53,6 +54,15 @@ img {
 
 .page-container {
   padding: 60px 100px;
+}
+
+.input {
+  padding: 12px 24px;
+  outline: none;
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+  color: $gray;
 }
 
 @media (max-width: 1024px) {

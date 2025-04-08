@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { lessonService } from "../../services/lesson.service";
 import { LessonData } from "../../redux/types";
 import { profileService } from "../../services/profile.service";
+import Comments from "../../components/comments";
 
 const Lesson = () => {
   const [lessonData, setLessonData] = useState<LessonData>();
@@ -71,6 +72,7 @@ const Lesson = () => {
           </button>
         )}
       </div>
+      <Comments lessonId={lessonData.theme_id} />
     </div>
   );
 };
