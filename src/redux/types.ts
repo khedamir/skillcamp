@@ -81,4 +81,17 @@ export interface ComplatedTestData {
   user_id: number;
 }
 
+export interface QuestionData {
+  id: number;
+  options: string;
+  question: string;
+  subject_id: number;
+  test_id: number;
+}
+
+export interface TestAnswerData {
+  question_id: number;
+  answer: string;
+}
+
 export type UserRoles = "admin" | "user";

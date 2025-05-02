@@ -4,6 +4,7 @@ import { lessonService } from "../../services/lesson.service";
 import { LessonData } from "../../redux/types";
 import { profileService } from "../../services/profile.service";
 import Comments from "../../components/comments";
+import Button from "../../components/button";
 
 const Lesson = () => {
   const [lessonData, setLessonData] = useState<LessonData>();
@@ -67,9 +68,7 @@ const Lesson = () => {
       </div>
       <div ref={contentEndRef} className="complete-button-container">
         {showCompleteButton && (
-          <button className="button" onClick={handleComplete}>
-            Завершить
-          </button>
+          <Button onClick={handleComplete}>Завершить</Button>
         )}
       </div>
       <Comments lessonId={lessonData.theme_id} />

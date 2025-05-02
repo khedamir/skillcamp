@@ -28,7 +28,7 @@ const Sigin = () => {
       dispatch(setAutharizationData({ data }));
       navigate("/courses");
     });
-  }, [navigate]);
+  }, [dispatch, navigate]);
 
   const {
     register,

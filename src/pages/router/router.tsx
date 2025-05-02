@@ -10,6 +10,7 @@ import Signup from "../signup";
 import { AppRoutes } from "./routes";
 import BaseLayout from "../../layouts/baseLayout";
 import Profile from "../profile";
+import Test from "../test";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
     element: (
       <BaseLayout>
         <Lesson />
+      </BaseLayout>
+    ),
+  },
+  {
+    path: AppRoutes.Test,
+    element: (
+      <BaseLayout>
+        <Test />
       </BaseLayout>
     ),
   },

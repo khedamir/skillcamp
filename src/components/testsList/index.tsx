@@ -23,10 +23,14 @@ const TestsList: FC<TestsListProps> = ({ courseId }) => {
 
   return (
     <div className="course-tests__list">
-      {tests.map((test) => (
+      <h2 className="tests-title">Тесты</h2>
+      {tests?.map((test) => (
         <TestItem
+          key={test.id}
           test={test}
-          complatedTest={complatedTests?.find((item) => (item.id === test.id))}
+          complatedTest={complatedTests?.find(
+            (item) => item.test_id === test.id
+          )}
         />
       ))}
     </div>

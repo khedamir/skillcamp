@@ -1,14 +1,18 @@
-import { FC, ReactNode } from "react";
+import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   disabled?: boolean;
   otherClass?: string;
 }
-
-const Button: FC<ButtonProps> = ({ children, disabled, otherClass = "" }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  disabled,
+  otherClass = "",
+  ...rest
+}) => {
   return (
-    <button className={`button ${otherClass}`} disabled={disabled}>
+    <button {...rest} className={`button ${otherClass}`} disabled={disabled}>
       {children}
     </button>
   );

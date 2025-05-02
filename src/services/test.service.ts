@@ -1,5 +1,10 @@
 import axios from "axios";
-import { ComplatedTestData, TestData } from "../redux/types";
+import {
+  ComplatedTestData,
+  QuestionData,
+  TestAnswerData,
+  TestData,
+} from "../redux/types";
 
 export const testService = {
   async getTestsBySubjectId(subjectId: number): Promise<TestData[]> {
@@ -32,5 +37,33 @@ export const testService = {
     });
 
     return data.data;
+  },
+
+  async getQuestions(testId: number): Promise<QuestionData[]> {
+    const { data } = await axios.get(`/api/testing/${testId}`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("SKUToken"),
+      },
+    });
+
+    return data.data;
+  },
+
+  async checkAnswers(
+    testId: number,
+    courseId: number,
+    answers: TestAnswerData[]
+  ): Promise<{ points: number }> {
+    const { data } = await axios.post(
+      `/api/test/check/${testId}/${courseId}`,
+      answers,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("SKUToken"),
+        },
+      }
+    );
+
+    return data;
   },
 };

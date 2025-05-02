@@ -3,6 +3,7 @@ import { CourseData } from "../../redux/types";
 import { subjectService } from "../../services/subject.service";
 import SearchCourse from "../../components/searchCourse";
 import AdminCourseCard from "../../components/adminCourseCard";
+import Button from "../../components/button";
 
 const Admin = () => {
   const [coursesList, setCoursesList] = useState<CourseData[]>([]);
@@ -21,7 +22,7 @@ const Admin = () => {
     <div className="admin-page page-container">
       <header className="admin-page__header">
         <h2 className="title">Курсы</h2>
-        <button className="button">Добавить новый курс</button>
+        <Button>Добавить новый курс</Button>
       </header>
       <SearchCourse
         courses={coursesList}

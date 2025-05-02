@@ -9,6 +9,7 @@
 @use "../components/searchCourse/searchCourse";
 @use "../components/themeItem/themeItem";
 @use "../components/comments/comments";
+@use "../components/modal/modal";
 
 @use "../pages/signin/signin";
 @use "../pages/homePage/homePage";
@@ -18,6 +19,7 @@
 @use "../pages/profile/profile";
 @use "../pages/lesson/lesson";
 @use "../pages/admin/admin";
+@use "../pages/test/test";
 
 * {
   margin: 0;

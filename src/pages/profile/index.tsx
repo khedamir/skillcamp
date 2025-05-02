@@ -3,7 +3,6 @@ import { profileService } from "../../services/profile.service";
 import { useDispatch, useSelector } from "react-redux";
 import { setProfileData } from "../../redux/auth/slice";
 import { RootState } from "../../redux/store";
-import { baseUrl } from "../../App";
 import { FaBriefcase } from "react-icons/fa";
 import UserAchievements from "../../components/userAchievements";
 import { subjectService } from "../../services/subject.service";
@@ -12,10 +11,14 @@ import CourseCard from "../../components/courseCard";
 import { MdOutlineLogout } from "react-icons/md";
 import { logout } from "../../redux/auth/slice";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/button";
+import EditProfile from "../../components/editProfile";
+import ProfileImage from "../../components/profileImage";
 
 const Profile = () => {
   const [lastSubject, setLastSubject] = useState<CourseData | null>(null);
   const navigate = useNavigate();
+  const [editProfileModalActive, setEditProfileModalActive] = useState(false);
 
   const dispatch = useDispatch();
   const { profile, autharizationData } = useSelector(
@@ -46,12 +49,7 @@ const Profile = () => {
   return (
     <div className="profile-page page-container">
       <header className="profile-page__header">
-        <img
-          width={200}
-          className="profile-image"
-          src={`${baseUrl}/images?id=${profile?.image}`}
-          alt="Profile Image"
-        />
+        <ProfileImage profileImage={profile?.image} />
         <div className="user-role">
           <FaBriefcase className="user-role__icon" />
           {autharizationData?.user_role === "admin" ? "Админ" : "Пользователь"}
@@ -65,7 +63,9 @@ const Profile = () => {
           <h1 className="username">{profile?.full_name}</h1>
           <p className="user-description">{profile?.description}</p>
           <p className="user-phone">{profile?.phone}</p>
-          <button className="button">Редактировать профиль</button>
+          <Button onClick={() => setEditProfileModalActive(true)}>
+            Редактировать профиль
+          </Button>
         </div>
         <div className="other">
           <div className="other-title">Ваш прогресс:</div>
@@ -76,6 +76,12 @@ const Profile = () => {
         <h2 className="last-course__title">Продолжите изучение:</h2>
         {lastSubject && <CourseCard course={lastSubject} />}
       </div>
+
+      <EditProfile
+        active={editProfileModalActive}
+        setActive={setEditProfileModalActive}
+        profileData={profile}
+      />
     </div>
   );
 };

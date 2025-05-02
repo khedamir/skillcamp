@@ -44,4 +44,18 @@ export const profileService = {
 
     return data.data;
   },
+
+  async updateProfilePhoto(photo: File): Promise<any> {
+    const formData = new FormData();
+    formData.append("avatar", photo); // Здесь нужно указать файл, который вы хотите загрузить
+
+    const { data } = await axios.post("/api/profile/avatar", formData, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("SKUToken"),
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    return data;
+  }
 };

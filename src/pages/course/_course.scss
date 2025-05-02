@@ -45,6 +45,10 @@
     flex-direction: column;
     gap: 12px;
 
+    .tests-title {
+      color: $light;
+    }
+
     .test-item {
       background-color: $light;
       padding: 18px 14px;
@@ -57,6 +61,12 @@
 
       display: flex;
       justify-content: space-between;
+      font-weight: 500;
+
+      &.is--active {
+        background-color: $orange;
+        color: white;
+      }
 
       &:hover {
         transform: scale(1.02);

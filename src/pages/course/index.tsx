@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { themeService } from "../../services/theme.service";
 
 import ThemeItem from "../../components/themeItem";
+import TestsList from "../../components/testsList";
 
 const Course = () => {
   const { courseId } = useParams();
@@ -50,7 +51,7 @@ const Course = () => {
             />
           ))}
         </div>
-        {/* <TestsList courseId={course.id} /> */}
+        <TestsList courseId={course.id} />
       </div>
     </div>
   );

@@ -9,6 +9,18 @@
   width: fit-content;
   text-transform: uppercase;
   cursor: pointer;
+  transition: color 0.3s, background-color 0.3s, border 0.3s;
+
+  &:hover {
+    background-color: $light;
+    border: 1px solid $light;
+    color: $orange;
+  }
+  &:active {
+    background-color: $dark;
+    border: 1px solid $light;
+    color: $light;
+  }
 
   &:disabled {
     opacity: 0.6;
