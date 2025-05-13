@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import axios from "axios";
 import Avatar from "../../assets/profile.png";
 import { baseUrl } from "../../App";
 import { profileService } from "../../services/profile.service";
