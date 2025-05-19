@@ -1,11 +1,14 @@
 import { FC, useState } from "react";
 import Modal from "../modal";
-import { ProfileData } from "../../redux/types";
+import { ProfileData, ProfileEditData } from "../../redux/types";
 import Button from "../button";
 import InputWrapper from "../inputWrapper";
 import { FaUser } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { MdDescription } from "react-icons/md";
+import { profileService } from "../../services/profile.service";
+import { useAppDispatch } from "../../redux/hooks";
+import { updateProfileData } from "../../redux/auth/slice";
 
 interface EditProfileProps {
   active: boolean;
@@ -18,20 +21,34 @@ const EditProfile: FC<EditProfileProps> = ({
   setActive,
   profileData,
 }) => {
-  const [fullName, setFullName] = useState(profileData.full_name);
+  const [full_name, setFullName] = useState(profileData.full_name);
   const [phone, setPhone] = useState(profileData.phone);
   const [description, setDescription] = useState(profileData.description);
+
+  const dispatch = useAppDispatch();
 
   const onClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setActive(false);
     setFullName(profileData.full_name);
-    setPhone(profileData.phone);  
+    setPhone(profileData.phone);
     setDescription(profileData.description);
   };
 
   const saveData = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    const editData: ProfileEditData = {
+      full_name,
+      description,
+      phone,
+      user_id: profileData.user_id,
+    };
+
+    profileService.updateData(editData).then((data) => {
+      dispatch(updateProfileData({ data }));
+    });
+
     setActive(false);
   };
 
@@ -47,7 +64,7 @@ const EditProfile: FC<EditProfileProps> = ({
             <InputWrapper icon={<FaUser />}>
               <input
                 type="text"
-                value={fullName}
+                value={full_name}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="ФИО"
               />

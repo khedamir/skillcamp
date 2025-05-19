@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AutharizationInfo, ProfileData, UserInfo } from "../types";
+import {
+  AutharizationInfo,
+  ProfileData,
+  ProfileEditData,
+  UserInfo,
+} from "../types";
 
 interface AuthState {
   isAuth: boolean;
@@ -40,8 +45,17 @@ export const authSlice = createSlice({
     setProfileData(state, action: PayloadAction<{ data: ProfileData }>) {
       state.profile = action.payload.data;
     },
+
+    updateProfileData(state, action: PayloadAction<{ data: ProfileEditData }>) {
+      if (state.profile) {
+        state.profile.full_name = action.payload.data.full_name;
+        state.profile.description = action.payload.data.description;
+        state.profile.phone = action.payload.data.phone;
+      }
+    },
   },
 });
 
-export const { logout, setAutharizationData, setUserData, setProfileData } = authSlice.actions;
+export const { logout, setAutharizationData, setUserData, setProfileData, updateProfileData } =
+  authSlice.actions;
 export default authSlice.reducer;

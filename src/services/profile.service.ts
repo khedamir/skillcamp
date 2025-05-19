@@ -1,5 +1,9 @@
 import axios from "axios";
-import { LeaderBoardUserData, ProfileData } from "../redux/types";
+import {
+  LeaderBoardUserData,
+  ProfileData,
+  ProfileEditData,
+} from "../redux/types";
 
 export const profileService = {
   async getData(): Promise<ProfileData> {
@@ -11,6 +15,17 @@ export const profileService = {
 
     return data.data[0];
   },
+
+  async updateData(editData: ProfileEditData): Promise<ProfileEditData> {
+    const { data } = await axios.post("/api/profile/edit", editData, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("SKUToken"),
+      },
+    });
+
+    return data.profile;
+  },
+
   async addPoint(id: number): Promise<any> {
     const { data } = await axios.post(`/api/profile/point/${id}`, undefined, {
       headers: {
@@ -47,7 +62,7 @@ export const profileService = {
 
   async updateProfilePhoto(photo: File): Promise<any> {
     const formData = new FormData();
-    formData.append("avatar", photo); // Здесь нужно указать файл, который вы хотите загрузить
+    formData.append("image", photo); // Здесь нужно указать файл, который вы хотите загрузить
 
     const { data } = await axios.post("/api/profile/avatar", formData, {
       headers: {
@@ -57,5 +72,5 @@ export const profileService = {
     });
 
     return data;
-  }
+  },
 };

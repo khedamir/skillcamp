@@ -11,6 +11,12 @@
     margin-bottom: 65px;
     position: relative;
 
+    .profile-image__wrapper {
+      input {
+        display: none;
+      }
+    }
+
     .profile-image {
       border-radius: 50%;
       position: absolute;

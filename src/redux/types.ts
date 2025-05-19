@@ -15,6 +15,13 @@ export interface ProfileData {
   user_id: string;
 }
 
+export interface ProfileEditData {
+  description: string;
+  full_name: string;
+  phone: string;
+  user_id: string;
+}
+
 export interface LeaderBoardUserData {
   id: number;
   image: string;
