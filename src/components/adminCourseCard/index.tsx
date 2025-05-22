@@ -9,13 +9,12 @@ const AdminCourseCard: FC<AdminCourseCardProps> = ({ course }) => {
   return (
     <div className="admin-course__card">
       <div className="course-info">
-        <h3 className="course-title">Введение в SQL{course.title}</h3>
-        <p className="course-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-          mollitia atque blanditiis eius, et expedita ullam iure ipsam, tempora,
-          consectetur perferendis perspiciatis dolor vero quia esse illum veniam
-          est ipsa.{course.description}
-        </p>
+        <h3 className="course-title">{course.title}</h3>
+        <p className="course-description">{course.description}</p>
+      </div>
+      <div className="course-buttons">
+        <button className="button">Редактировать курс</button>
+        <button className="button">Удалить курс</button>
       </div>
     </div>
   );

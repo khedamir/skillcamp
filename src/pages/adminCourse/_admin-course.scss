@@ -1,0 +1,76 @@
+@use "../../styles/config" as *;
+
+.admin-course__page {
+  .course-data__wrapper {
+    border: 1px solid $light;
+    padding: 18px;
+    border-radius: 18px;
+    color: $light;
+    margin-bottom: 12px;
+
+    & > h3 {
+      font-size: 28px;
+      margin-bottom: 14px;
+      color: $orange;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .save-button {
+      align-self: flex-end;
+    }
+  }
+
+  .course-data__form {
+    form {
+      .course-poster__wrapper {
+        #course-poster {
+          display: none;
+        }
+
+        label {
+          color: $blue;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .add-course__data {
+    & > p {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+    .ck-editor {
+      color: $dark;
+      border-radius: 12px;
+
+      .ck-content {
+        min-height: 300px;
+      }
+    }
+  }
+
+  .add-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .lesson-data {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

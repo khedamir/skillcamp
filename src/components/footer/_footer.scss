@@ -3,9 +3,12 @@
 .main-footer {
   background-color: $gray;
   color: $light;
-  text-align: center;
-  padding: 12px 64px;
+  padding: 12px 100px;
 
+  .document-link {
+    text-decoration: underline;
+    font-size: 12px;
+  }
   @media (max-width: 764px) {
     display: none;
   }

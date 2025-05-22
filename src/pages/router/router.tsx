@@ -11,6 +11,8 @@ import { AppRoutes } from "./routes";
 import BaseLayout from "../../layouts/baseLayout";
 import Profile from "../profile";
 import Test from "../test";
+import AdminCourse from "../adminCourse";
+import Events from "../events";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +68,14 @@ export const router = createBrowserRouter([
     ),
   },
   {
+    path: AppRoutes.Events,
+    element: (
+      <BaseLayout>
+        <Events />
+      </BaseLayout>
+    ),
+  },
+  {
     path: AppRoutes.Profile,
     element: (
       <BaseLayout>
@@ -78,6 +88,14 @@ export const router = createBrowserRouter([
     element: (
       <BaseLayout>
         <Admin />
+      </BaseLayout>
+    ),
+  },
+  {
+    path: AppRoutes.AdminCourse,
+    element: (
+      <BaseLayout>
+        <AdminCourse />
       </BaseLayout>
     ),
   },

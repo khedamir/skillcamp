@@ -10,15 +10,19 @@
 @use "../components/themeItem/themeItem";
 @use "../components/comments/comments";
 @use "../components/modal/modal";
+@use "../components/customCheckbox/customCheckbox";
+
 
 @use "../pages/signin/signin";
 @use "../pages/homePage/homePage";
 @use "../pages/courses/courses";
 @use "../pages/course/course";
 @use "../pages/leaderBoard/leaderBoard";
+@use "../pages/events/events";
 @use "../pages/profile/profile";
 @use "../pages/lesson/lesson";
 @use "../pages/admin/admin";
+@use "../pages/adminCourse/admin-course";
 @use "../pages/test/test";
 
 * {

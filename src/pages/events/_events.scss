@@ -1,0 +1,8 @@
+@use "../../styles/config" as *;
+
+.events-page {
+    p {
+        color: $light;
+        text-align: center;
+    }
+}

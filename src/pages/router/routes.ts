@@ -7,7 +7,9 @@ export enum AppRoutes {
   Lesson = "/courses/:courseId/:lessonId",
   Test = "/tests/:courseId/:testId",
   LeaderBoard = "/leader-board",
+  Events = "/events",
   Profile = "/profile",
   Admin = "/admin",
+  AdminCourse = "/admin-course",
   All = "*",
 }
