@@ -11,8 +11,8 @@ import { AppRoutes } from "./routes";
 import BaseLayout from "../../layouts/baseLayout";
 import Profile from "../profile";
 import Test from "../test";
-import AdminCourse from "../adminCourse";
 import Events from "../events";
+import Certificate from "../certificate";
 
 export const router = createBrowserRouter([
   {
@@ -84,18 +84,18 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: AppRoutes.Admin,
+    path: AppRoutes.Certificate,
     element: (
       <BaseLayout>
-        <Admin />
+        <Certificate />
       </BaseLayout>
     ),
   },
   {
-    path: AppRoutes.AdminCourse,
+    path: AppRoutes.Admin,
     element: (
       <BaseLayout>
-        <AdminCourse />
+        <Admin />
       </BaseLayout>
     ),
   },

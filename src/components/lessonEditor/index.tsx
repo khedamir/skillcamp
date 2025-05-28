@@ -64,7 +64,7 @@ const LessonEditor: FC<LessonEditorProps> = ({ content, setContent }) => {
         }}
         onReady={(editor) => {
           // Добавляем поддержку вставки из буфера обмена
-          editor.editing.view.document.on("clipboardInput", (evt, data) => {
+          editor.editing.view.document.on("clipboardInput", (evt: any, data: any) => {
             if (data.dataTransfer.files.length) {
               editor.execute("uploadImage", {
                 file: data.dataTransfer.files[0],

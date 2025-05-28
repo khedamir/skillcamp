@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { profileService } from "../../services/profile.service";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { setProfileData } from "../../redux/auth/slice";
 import { RootState } from "../../redux/store";
 import { FaBriefcase } from "react-icons/fa";
@@ -14,13 +14,14 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/button";
 import EditProfile from "../../components/editProfile";
 import ProfileImage from "../../components/profileImage";
+import { useAppDispatch } from "../../redux/hooks";
 
 const Profile = () => {
   const [lastSubject, setLastSubject] = useState<CourseData | null>(null);
   const navigate = useNavigate();
   const [editProfileModalActive, setEditProfileModalActive] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { profile, autharizationData } = useSelector(
     (state: RootState) => state.auth
   );

@@ -75,6 +75,12 @@
   max-width: 100%;
   overflow-x: hidden;
 
+  iframe {
+    width: 100%;
+    border: none;
+    min-height: 80vh;
+  }
+
   h1,
   h2,
   h3,
@@ -138,5 +144,6 @@
 
   img {
     max-width: 100%;
+    height: auto;
   }
 }

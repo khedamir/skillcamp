@@ -35,94 +35,6 @@ const Courses = () => {
           {filteredCoursesList.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
-
-          <div className="course-card">
-            <img
-              className="course-image"
-              src="https://www.computersciencedegreehub.com/wp-content/uploads/2023/02/shutterstock_535124956-scaled.jpg"
-              alt=""
-            />
-
-            <div className="course-meta">
-              <div className="course-themes">10 тем</div>
-              <div className="course-progress">15%</div>
-            </div>
-
-            <div className="course-description">
-              <h3>Основы Python</h3>
-              <p>
-                Описание курса по пайтон. Много описания курса по пайтон.
-                Отличный курс по пайтон. Записывайся чувак.
-              </p>
-              <button className="button">Продолжить</button>
-            </div>
-          </div>
-
-          <div className="course-card">
-            <img
-              className="course-image"
-              src="https://www.computersciencedegreehub.com/wp-content/uploads/2023/02/shutterstock_535124956-scaled.jpg"
-              alt=""
-            />
-
-            <div className="course-meta">
-              <div className="course-themes">10 тем</div>
-              <div className="course-progress">15%</div>
-            </div>
-
-            <div className="course-description">
-              <h3>Основы Python</h3>
-              <p>
-                Описание курса по пайтон. Много описания курса по пайтон.
-                Отличный курс по пайтон. Записывайся чувак.
-              </p>
-              <button className="button">Продолжить</button>
-            </div>
-          </div>
-
-          <div className="course-card">
-            <img
-              className="course-image"
-              src="https://www.computersciencedegreehub.com/wp-content/uploads/2023/02/shutterstock_535124956-scaled.jpg"
-              alt=""
-            />
-
-            <div className="course-meta">
-              <div className="course-themes">10 тем</div>
-              <div className="course-progress">15%</div>
-            </div>
-
-            <div className="course-description">
-              <h3>Основы Python</h3>
-              <p>
-                Описание курса по пайтон. Много описания курса по пайтон.
-                Отличный курс по пайтон. Записывайся чувак.
-              </p>
-              <button className="button">Продолжить</button>
-            </div>
-          </div>
-
-          <div className="course-card">
-            <img
-              className="course-image"
-              src="https://www.computersciencedegreehub.com/wp-content/uploads/2023/02/shutterstock_535124956-scaled.jpg"
-              alt=""
-            />
-
-            <div className="course-meta">
-              <div className="course-themes">10 тем</div>
-              <div className="course-progress">15%</div>
-            </div>
-
-            <div className="course-description">
-              <h3>Основы Python</h3>
-              <p>
-                Описание курса по пайтон. Много описания курса по пайтон.
-                Отличный курс по пайтон. Записывайся чувак.
-              </p>
-              <button className="button">Продолжить</button>
-            </div>
-          </div>
         </div>
       </div>
     </>
@@ -130,3 +42,4 @@ const Courses = () => {
 };
 
 export default Courses;
+ 

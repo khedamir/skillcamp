@@ -1,27 +1,44 @@
 import { useEffect, useState } from "react";
 import { CourseData, ThemeData } from "../../redux/types";
 import { subjectService } from "../../services/subject.service";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { themeService } from "../../services/theme.service";
+import { GiDiploma } from "react-icons/gi";
 
 import ThemeItem from "../../components/themeItem";
 import TestsList from "../../components/testsList";
+import { certificateService } from "../../services/certificate.service";
+import Button from "../../components/button";
 
 const Course = () => {
   const { courseId } = useParams();
   const [course, setCourse] = useState<CourseData>();
   const [themes, setThemes] = useState<ThemeData[]>([]);
   const [doneThemes, setDoneThemes] = useState<number[]>([]);
+  const navigate = useNavigate();
+
+  const [isCertificated, setIsSertificated] = useState(false);
 
   useEffect(() => {
     subjectService.getSubject(String(courseId)).then((data) => {
       setCourse(data);
+
+      subjectService.setLastSubject(String(courseId));
+
       themeService.getThemes(data.id).then((data) => {
         setThemes(data);
       });
       themeService.getDoneThemes(data.id).then((data) => {
         setDoneThemes(data);
       });
+
+      certificateService
+        .certificateVerification(String(courseId))
+        .then((res) => {
+          if (res.courseDone) {
+            setIsSertificated(true);
+          }
+        });
     });
   }, [courseId]);
 
@@ -35,6 +52,19 @@ const Course = () => {
         <h1 className="course-name">{course.title}</h1>
         <div className="course-description">
           <h2>О курсе</h2>
+          {isCertificated && course.iscertificated == "false" && (
+            <Button
+              onClick={() => {
+                alert(
+                  "В данный момент приложение находиться в бета тестировании сертификаты будут добавлены в будующих обновления. Ваши сертификаты сохранятся"
+                );
+                navigate(`/certificate/${course.id}`);
+              }}
+              otherClass="button-blue certificate-btn"
+            >
+              <GiDiploma /> Получить сертификат
+            </Button>
+          )}
           <p>{course.description}</p>
         </div>
       </header>

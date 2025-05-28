@@ -4,28 +4,33 @@ import { subjectService } from "../../services/subject.service";
 import SearchCourse from "../../components/searchCourse";
 import AdminCourseCard from "../../components/adminCourseCard";
 import Button from "../../components/button";
-import { useNavigate } from "react-router-dom";
+import ChangeCourse from "../../components/changeCourse";
 
 const Admin = () => {
   const [coursesList, setCoursesList] = useState<CourseData[]>([]);
   const [filteredCoursesList, setFilteredCoursesList] = useState<CourseData[]>(
     []
   );
+  const [active, setActive] = useState(false);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
+  const updateList = () => {
     subjectService.getSubjects().then((data) => {
       setCoursesList(data);
       setFilteredCoursesList(data);
     });
+  };
+
+  useEffect(() => {
+    updateList();
   }, []);
 
   const addNewCourseClick = () => {
-    navigate("/admin-course");
+    setActive(true);
   };
 
-  return (
+  return active ? (
+    <ChangeCourse setActive={setActive} />
+  ) : (
     <div className="admin-page page-container">
       <header className="admin-page__header">
         <h2 className="title">Курсы</h2>
@@ -37,7 +42,12 @@ const Admin = () => {
       />
       <div className="courses-list">
         {filteredCoursesList.map((course) => (
-          <AdminCourseCard key={course.id} course={course} />
+          <AdminCourseCard
+            key={course.id}
+            updateList={updateList}
+            course={course}
+            setActive={setActive}
+          />
         ))}
       </div>
     </div>

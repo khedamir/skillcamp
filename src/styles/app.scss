@@ -11,6 +11,7 @@
 @use "../components/comments/comments";
 @use "../components/modal/modal";
 @use "../components/customCheckbox/customCheckbox";
+@use "../components/changeCourse/changeCourse";
 
 
 @use "../pages/signin/signin";
@@ -22,8 +23,8 @@
 @use "../pages/profile/profile";
 @use "../pages/lesson/lesson";
 @use "../pages/admin/admin";
-@use "../pages/adminCourse/admin-course";
 @use "../pages/test/test";
+@use "../pages/certificate/certificate";
 
 * {
   margin: 0;

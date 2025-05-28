@@ -11,6 +11,10 @@
   cursor: pointer;
   transition: color 0.3s, background-color 0.3s, border 0.3s;
 
+  &-blue {
+    background-color: $blue;
+  }
+
   &:hover {
     background-color: $light;
     border: 1px solid $light;

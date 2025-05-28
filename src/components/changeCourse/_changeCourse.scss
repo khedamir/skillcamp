@@ -1,6 +1,18 @@
 @use "../../styles/config" as *;
 
 .admin-course__page {
+  .admin-page__header {
+    .button {
+      font-size: 24px;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   .course-data__wrapper {
     border: 1px solid $light;
     padding: 18px;

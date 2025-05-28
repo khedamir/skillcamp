@@ -40,6 +40,8 @@ export interface CourseData {
   title: string;
   description: string;
   iscertificated: string;
+  completed_themes: number;
+  total_themes: number;
 }
 
 export interface ThemeData {
@@ -53,6 +55,7 @@ export interface LessonData {
   id: number;
   theme_id: number;
   upkeep: string;
+  title: string;
 }
 
 export interface CommentData {
@@ -99,6 +102,11 @@ export interface QuestionData {
 export interface TestAnswerData {
   question_id: number;
   answer: string;
+}
+
+export interface CertificateVerificationData {
+  courseDone: boolean;
+  date: string;
 }
 
 export type UserRoles = "admin" | "user";

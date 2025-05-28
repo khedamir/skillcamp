@@ -5,6 +5,7 @@ import { LessonData } from "../../redux/types";
 import { profileService } from "../../services/profile.service";
 import Comments from "../../components/comments";
 import Button from "../../components/button";
+// import { baseUrl } from "../../App";
 
 const Lesson = () => {
   const [lessonData, setLessonData] = useState<LessonData>();
@@ -63,7 +64,7 @@ const Lesson = () => {
   return (
     <div className="lesson-page page-container">
       <div className="lesson-content-wrapper">
-        <h1 className="lesson-title">Основы SQL</h1>
+        <h1 className="lesson-title">{lessonData.title}</h1>
         <LessonContent str={lessonData.upkeep} />
       </div>
       <div ref={contentEndRef} className="complete-button-container">
@@ -78,7 +79,9 @@ const Lesson = () => {
 
 function LessonContent({ str }: { str: string }) {
   return (
-    <div className="content" dangerouslySetInnerHTML={createMarkup(str)} />
+    <div className="content" dangerouslySetInnerHTML={createMarkup(str)}>
+      {/* <iframe src={`${baseUrl}/content?id=py_1.html`}></iframe> */}
+    </div>
   );
 }
 

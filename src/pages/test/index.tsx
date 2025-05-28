@@ -36,7 +36,7 @@ const Test = () => {
   const SubmitQueston = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (answers.length < questions.length) {
+    if (answers?.length < questions?.length) {
       alert("Пожалуйста, ответьте на все вопросы!");
       return;
     }
@@ -60,7 +60,7 @@ const Test = () => {
       <h1 className="test-page__title">Тестирование</h1>
       <form onSubmit={SubmitQueston}>
         <div className="test-page__questions">
-          {questions.map((data, i) => (
+          {questions?.map((data, i) => (
             <TestQuestion
               key={data.id}
               data={data}
@@ -75,7 +75,7 @@ const Test = () => {
         active={modalActive}
         setActive={setModalActive}
         points={points}
-        quantity={questions.length}
+        quantity={questions?.length}
       />
     </div>
   );

@@ -25,4 +25,13 @@ export const subjectService = {
     const { data } = await axios.get(`/api/profiles/on/subject/${id}`);
     return data;
   },
+
+  async setLastSubject(id: string): Promise<CourseData> {
+    const { data } = await axios.post(`/api/profile/subject/${id}`, undefined, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("SKUToken"),
+      },
+    });
+    return data.data[0];
+  },
 };
