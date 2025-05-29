@@ -6,12 +6,14 @@
 @use "../components/authFormWrapper/authFormWrapper";
 @use "../components/button/button";
 @use "../components/courseCard/courseCard";
+@use "../components/courseStudents/courseStudents";
 @use "../components/searchCourse/searchCourse";
 @use "../components/themeItem/themeItem";
 @use "../components/comments/comments";
 @use "../components/modal/modal";
 @use "../components/customCheckbox/customCheckbox";
 @use "../components/changeCourse/changeCourse";
+@use "../components/loader/loader";
 
 
 @use "../pages/signin/signin";

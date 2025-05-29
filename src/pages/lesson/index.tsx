@@ -5,11 +5,12 @@ import { LessonData } from "../../redux/types";
 import { profileService } from "../../services/profile.service";
 import Comments from "../../components/comments";
 import Button from "../../components/button";
-// import { baseUrl } from "../../App";
+import Loader from "../../components/loader";
 
 const Lesson = () => {
   const [lessonData, setLessonData] = useState<LessonData>();
   const { courseId, lessonId } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   const [showCompleteButton, setShowCompleteButton] = useState(false);
   const contentEndRef = useRef<HTMLDivElement>(null);
@@ -19,6 +20,7 @@ const Lesson = () => {
   useEffect(() => {
     lessonService.getLesson(Number(courseId), Number(lessonId)).then((data) => {
       setLessonData(data);
+      setIsLoading(false);
     });
   }, [courseId, lessonId]);
 
@@ -57,9 +59,15 @@ const Lesson = () => {
     });
   };
 
-  if (!lessonData) {
-    return;
+  
+  if (isLoading) {
+    return <Loader />;
   }
+  
+  if (!lessonData) {
+    return <p>Данные курса отсутствуют...</p>;
+  }
+
 
   return (
     <div className="lesson-page page-container">
@@ -79,9 +87,7 @@ const Lesson = () => {
 
 function LessonContent({ str }: { str: string }) {
   return (
-    <div className="content" dangerouslySetInnerHTML={createMarkup(str)}>
-      {/* <iframe src={`${baseUrl}/content?id=py_1.html`}></iframe> */}
-    </div>
+    <div className="content" dangerouslySetInnerHTML={createMarkup(str)} />
   );
 }
 

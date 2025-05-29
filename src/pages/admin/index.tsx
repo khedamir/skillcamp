@@ -5,6 +5,7 @@ import SearchCourse from "../../components/searchCourse";
 import AdminCourseCard from "../../components/adminCourseCard";
 import Button from "../../components/button";
 import ChangeCourse from "../../components/changeCourse";
+import Loader from "../../components/loader";
 
 const Admin = () => {
   const [coursesList, setCoursesList] = useState<CourseData[]>([]);
@@ -12,11 +13,13 @@ const Admin = () => {
     []
   );
   const [active, setActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const updateList = () => {
     subjectService.getSubjects().then((data) => {
       setCoursesList(data);
       setFilteredCoursesList(data);
+      setIsLoading(false);
     });
   };
 
@@ -40,16 +43,20 @@ const Admin = () => {
         courses={coursesList}
         setFilteredCourses={setFilteredCoursesList}
       />
-      <div className="courses-list">
-        {filteredCoursesList.map((course) => (
-          <AdminCourseCard
-            key={course.id}
-            updateList={updateList}
-            course={course}
-            setActive={setActive}
-          />
-        ))}
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="courses-list">
+          {filteredCoursesList.map((course) => (
+            <AdminCourseCard
+              key={course.id}
+              updateList={updateList}
+              course={course}
+              setActive={setActive}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

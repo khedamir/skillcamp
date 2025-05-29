@@ -150,6 +150,7 @@
     .course-card {
       display: flex;
       height: 220px;
+      flex-direction: row;
 
       .course-image {
         height: 100%;
@@ -159,8 +160,11 @@
       .course-description {
         height: 100%;
         p {
+          display: -webkit-box;
           -webkit-line-clamp: 4;
-          flex: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
     }

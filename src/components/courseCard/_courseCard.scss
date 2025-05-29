@@ -2,7 +2,7 @@
 
 .course-card {
   width: 100%;
-  height: fit-content;
+  height: 320px;
   background-color: $light;
   border-radius: 14px;
   overflow: hidden;
@@ -10,6 +10,8 @@
   box-shadow: 0 0 20px -14px $orange;
   transition: transform 0.3s, color 0.3s, background-color 0.3s, box-shadow 0.3s;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     background-color: $orange;
@@ -44,19 +46,25 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      flex: 1;
 
       button {
         align-self: flex-end;
-        margin-top: 12px;
+        margin-top: auto;
       }
 
       h3 {
         color: $orange;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       p {
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;

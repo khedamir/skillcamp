@@ -9,6 +9,8 @@ import ThemeItem from "../../components/themeItem";
 import TestsList from "../../components/testsList";
 import { certificateService } from "../../services/certificate.service";
 import Button from "../../components/button";
+import Loader from "../../components/loader";
+import CourseStudents from "../../components/courseStudents";
 
 const Course = () => {
   const { courseId } = useParams();
@@ -43,7 +45,7 @@ const Course = () => {
   }, [courseId]);
 
   if (!course) {
-    return;
+    return <Loader />;
   }
 
   return (
@@ -52,7 +54,7 @@ const Course = () => {
         <h1 className="course-name">{course.title}</h1>
         <div className="course-description">
           <h2>О курсе</h2>
-          {isCertificated && course.iscertificated == "false" && (
+          {isCertificated && course.iscertificated == "true" && (
             <Button
               onClick={() => {
                 alert(
@@ -68,6 +70,7 @@ const Course = () => {
           <p>{course.description}</p>
         </div>
       </header>
+      <CourseStudents courseId={course.id} />
       <div className="course-themes">
         <h2 className="course-themes__title">Уроки</h2>
         <div className="course-themes__list">

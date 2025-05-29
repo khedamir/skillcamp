@@ -109,4 +109,10 @@ export interface CertificateVerificationData {
   date: string;
 }
 
+export interface UserOnSubjectData {
+  full_name: string;
+  id: string;
+  image: string;
+}
+
 export type UserRoles = "admin" | "user";

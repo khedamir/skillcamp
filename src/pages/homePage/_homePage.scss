@@ -1,3 +1,5 @@
+@use "../../styles/config" as *;
+
 .home-page {
   text-align: center;
   padding: 120px 0;
@@ -13,7 +15,7 @@
     color: #fff;
     padding: 12px 24px;
     border-radius: 12px;
-    background-color: #ff7700;
+    background-color: $orange;
     margin: 12px 0;
 
   }

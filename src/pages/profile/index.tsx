@@ -5,9 +5,6 @@ import { setProfileData } from "../../redux/auth/slice";
 import { RootState } from "../../redux/store";
 import { FaBriefcase } from "react-icons/fa";
 import UserAchievements from "../../components/userAchievements";
-import { subjectService } from "../../services/subject.service";
-import { CourseData } from "../../redux/types";
-import CourseCard from "../../components/courseCard";
 import { MdOutlineLogout } from "react-icons/md";
 import { logout } from "../../redux/auth/slice";
 import { useNavigate } from "react-router-dom";
@@ -15,11 +12,13 @@ import Button from "../../components/button";
 import EditProfile from "../../components/editProfile";
 import ProfileImage from "../../components/profileImage";
 import { useAppDispatch } from "../../redux/hooks";
+import ProfileLastCourse from "../../components/profileLastCourse";
+import Loader from "../../components/loader";
 
 const Profile = () => {
-  const [lastSubject, setLastSubject] = useState<CourseData | null>(null);
   const navigate = useNavigate();
   const [editProfileModalActive, setEditProfileModalActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useAppDispatch();
   const { profile, autharizationData } = useSelector(
@@ -29,11 +28,7 @@ const Profile = () => {
   useEffect(() => {
     profileService.getData().then((data) => {
       dispatch(setProfileData({ data }));
-    });
-    profileService.getlastSubject().then((data) => {
-      subjectService.getSubject(String(data.subjects_id)).then((data) => {
-        setLastSubject(data);
-      });
+      setIsLoading(false);
     });
   }, [dispatch]);
 
@@ -43,8 +38,12 @@ const Profile = () => {
     navigate("/");
   };
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   if (!profile) {
-    return;
+    return <p>Данные профиля отсутствуют...</p>;
   }
 
   return (
@@ -73,11 +72,7 @@ const Profile = () => {
           <UserAchievements profile={profile} />
         </div>
       </div>
-      <div className="last-course">
-        <h2 className="last-course__title">Продолжите изучение:</h2>
-        {lastSubject && <CourseCard course={lastSubject} />}
-      </div>
-
+      <ProfileLastCourse />
       <EditProfile
         active={editProfileModalActive}
         setActive={setEditProfileModalActive}

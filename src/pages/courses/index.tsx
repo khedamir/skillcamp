@@ -4,8 +4,10 @@ import { subjectService } from "../../services/subject.service";
 import CourseCard from "../../components/courseCard";
 import { CourseData } from "../../redux/types";
 import SearchCourse from "../../components/searchCourse";
+import Loader from "../../components/loader";
 
 const Courses = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [coursesList, setCoursesList] = useState<CourseData[]>([]);
   const [filteredCoursesList, setFilteredCoursesList] = useState<CourseData[]>(
     []
@@ -15,6 +17,7 @@ const Courses = () => {
     subjectService.getSubjects().then((data) => {
       setCoursesList(data);
       setFilteredCoursesList(data);
+      setIsLoading(false);
     });
   }, []);
 
@@ -31,15 +34,19 @@ const Courses = () => {
             setFilteredCourses={setFilteredCoursesList}
           />
         </header>
-        <div className="courses-list">
-          {filteredCoursesList.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
-        </div>
+
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="courses-list">
+            {filteredCoursesList.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
 };
 
 export default Courses;
- 

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import TestQuestion from "../../components/testQuestion";
 import Button from "../../components/button";
 import TestResultModal from "../../components/testResultModal";
+import Loader from "../../components/loader";
 
 const Test = () => {
   const [questions, setQuestions] = useState<QuestionData[]>([]);
@@ -14,8 +15,13 @@ const Test = () => {
 
   const [points, setPoints] = useState(0);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    testService.getQuestions(Number(testId)).then((data) => setQuestions(data));
+    testService
+      .getQuestions(Number(testId))
+      .then((data) => setQuestions(data))
+      .then(() => setIsLoading(false));
   }, [testId]);
 
   const setValueForQuestion = (
@@ -58,19 +64,23 @@ const Test = () => {
   return (
     <div className="test-page page-container">
       <h1 className="test-page__title">Тестирование</h1>
-      <form onSubmit={SubmitQueston}>
-        <div className="test-page__questions">
-          {questions?.map((data, i) => (
-            <TestQuestion
-              key={data.id}
-              data={data}
-              index={i}
-              setValueForQuestion={setValueForQuestion}
-            />
-          ))}
-        </div>
-        <Button type="submit">Готово</Button>
-      </form>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <form onSubmit={SubmitQueston}>
+          <div className="test-page__questions">
+            {questions?.map((data, i) => (
+              <TestQuestion
+                key={data.id}
+                data={data}
+                index={i}
+                setValueForQuestion={setValueForQuestion}
+              />
+            ))}
+          </div>
+          <Button type="submit">Готово</Button>
+        </form>
+      )}
       <TestResultModal
         active={modalActive}
         setActive={setModalActive}

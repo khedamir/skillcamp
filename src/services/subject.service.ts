@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CourseData } from "../redux/types";
+import { CourseData, UserOnSubjectData } from "../redux/types";
 
 export const subjectService = {
   async getSubjects(): Promise<CourseData[]> {
@@ -21,9 +21,9 @@ export const subjectService = {
     return data.data[0];
   },
 
-  async getUserOnSubject(id: string): Promise<any> {
+  async getUserOnSubject(id: string): Promise<UserOnSubjectData[]> {
     const { data } = await axios.get(`/api/profiles/on/subject/${id}`);
-    return data;
+    return data.data;
   },
 
   async setLastSubject(id: string): Promise<CourseData> {

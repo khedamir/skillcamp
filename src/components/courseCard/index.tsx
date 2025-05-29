@@ -23,7 +23,7 @@ const CourseCard: FC<CourseCardProps> = ({ course }) => {
   };
 
   return (
-    <div className="course-card">
+    <div onClick={() => goToCoursePage(course.id)} className="course-card">
       <img
         className="course-image"
         src={`${baseUrl}/images?id=` + course.image}
@@ -40,7 +40,7 @@ const CourseCard: FC<CourseCardProps> = ({ course }) => {
       <div className="course-description">
         <h3>{course.title}</h3>
         <p>{course.description}</p>
-        <button onClick={() => goToCoursePage(course.id)} className="button">
+        <button className="button">
           {course.completed_themes == 0 ? "Начать" : "Продолжить"}
         </button>
       </div>

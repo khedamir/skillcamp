@@ -1,0 +1,32 @@
+@use "../../styles/config" as *;
+
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+
+  .loader {
+    width: 48px;
+    height: 48px;
+    background: $light;
+    border-radius: 50%;
+    position: relative;
+    animation: skLinRotate 1s ease-in-out infinite alternate;
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 5px solid transparent;
+      border-top-color: $orange;
+    }
+    @keyframes skLinRotate {
+      95%,
+      100% {
+        transform: rotate(840deg);
+      }
+    }
+  }
+}

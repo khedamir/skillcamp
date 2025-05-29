@@ -4,6 +4,7 @@ import NewComment from "./newComment";
 import { CommentData } from "../../redux/types";
 import { commentService } from "../../services/comment.service";
 import Comment from "./comment";
+import Loader from "../loader";
 
 interface CommentsProps {
   lessonId: number;
@@ -12,10 +13,12 @@ interface CommentsProps {
 const Comments: FC<CommentsProps> = ({ lessonId }) => {
   const [comments, setComments] = useState<CommentData[]>([]);
   const [replyComment, setReplyComment] = useState<CommentData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const updateComments = useCallback(() => {
     commentService.getComments(lessonId).then((data) => {
       setComments(data);
+      setIsLoading(false);
     });
   }, [lessonId]);
 
@@ -39,14 +42,18 @@ const Comments: FC<CommentsProps> = ({ lessonId }) => {
         />
       </div>
       <div className="lesson-comments__list">
-        {comments.map((comment) => (
-          <Comment
-            key={comment.id + String(new Date())}
-            comment={comment}
-            setReplyComment={setReplyComment}
-            updateComments={updateComments}
-          />
-        ))}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          comments.map((comment) => (
+            <Comment
+              key={comment.id + String(new Date())}
+              comment={comment}
+              setReplyComment={setReplyComment}
+              updateComments={updateComments}
+            />
+          ))
+        )}
       </div>
     </div>
   );

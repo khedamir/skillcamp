@@ -1,0 +1,31 @@
+@use "../../styles/config" as *;
+
+.course-students {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 10px;
+  gap: 6px;
+  color: $light;
+  &__avatars {
+    display: flex;
+  }
+
+  &__avatar {
+    background-color: #c4c4c4;
+    opacity: 0.9;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  &__count,
+  &__description {
+    font-style: italic;
+  }
+}

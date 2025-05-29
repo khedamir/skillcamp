@@ -39,7 +39,7 @@ const CourseInfoForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: FormValues) => {
-    if (!data.image || data.image.length === 0) {
+    if ((!data.image || data.image.length === 0) && !onEditing) {
       alert("Пожалуйста, загрузите изображение");
       return;
     }
@@ -118,7 +118,10 @@ const CourseInfoForm = () => {
             id="course-poster"
             type="file"
             accept="image/*"
-            {...register("image", { required: "Загрузите изображение" })}
+            {...register(
+              "image",
+              onEditing ? {} : { required: "Загрузите изображение" }
+            )}
           />
           <label htmlFor="course-poster">Загрузить постер курса</label>
         </span>
