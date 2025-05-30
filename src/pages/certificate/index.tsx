@@ -35,11 +35,10 @@ const Certificate: React.FC = () => {
     // Получение профиля пользователя
     profileService
       .getData()
-      .then((res: any) => {
-        const user: UserProfile = res.data[0];
-        setUserProfile(user);
+      .then((res) => {
+        setUserProfile(res);
       })
-      .catch((err: any) => {
+      .catch((err) => {
         console.error(err);
         if (err.response?.status === 401) {
           navigate("/");
